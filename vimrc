@@ -38,10 +38,11 @@
   set ignorecase
   set smartcase
 
-" ================ Swap Files ==============
-"
-  set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-  set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
