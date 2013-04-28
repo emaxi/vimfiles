@@ -102,7 +102,7 @@ set splitright
 set cursorline
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
+" set list
 " Always show status line
 set laststatus=2
 " Don’t show the intro message when starting Vim
