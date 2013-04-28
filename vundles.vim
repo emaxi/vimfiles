@@ -18,13 +18,10 @@ Bundle "im-scripts/lastpos.vim"
 Bundle "bogado/file-line.git"
 " extended % matching for HTML, LaTeX, and many other languages
 Bundle "vim-scripts/matchit.zip.git"
-" ShowMarks : Visually shows the location of marks.
-Bundle "xsunsmile/showmarks.git"
 " IndexedSearch : shows  'Nth match out of M'  at every search (index of match+total # matches)
 Bundle "vim-scripts/IndexedSearch"
 Bundle "godlygeek/tabular"
 Bundle "nathanaelkane/vim-indent-guides"
-
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
