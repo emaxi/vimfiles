@@ -90,3 +90,9 @@ set wildignore+=*.png,*.jpg,*.gif
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
+
+" ================ epliting ========================
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
