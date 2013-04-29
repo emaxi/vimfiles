@@ -92,11 +92,18 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-" ================ epliting ========================
+" ================ Spliting ========================
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"
+" ================ Spliting ========================
 
 " Highlight current line
 set cursorline
