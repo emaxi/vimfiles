@@ -13,7 +13,7 @@ Bundle "tomtom/tcomment_vim.git"
 Bundle "tpope/vim-repeat.git"
 Bundle "tpope/vim-endwise.git"
 " Last position jump improved for Easy Vim
-Bundle "im-scripts/lastpos.vim"
+Bundle "vim-scripts/lastpos.vim"
 " Allows you to open file:line
 Bundle "bogado/file-line.git"
 " extended % matching for HTML, LaTeX, and many other languages
@@ -34,7 +34,7 @@ Bundle "timcharper/textile.vim.git"
 Bundle "itspriddle/vim-jquery.git"
 Bundle "slim-template/vim-slim.git"
 Bundle "groenewege/vim-less.git"
-Bundle "vim-scripts/Vim-R-plugin"
+" Bundle "vim-scripts/Vim-R-plugin"
 Bundle "tpope/vim-git"
 Bundle "pangloss/vim-javascript"
 " A syntax plugin that extends the Tim Pope's markdown syntax file to

@@ -130,3 +130,4 @@ noremap <leader>ss :call StripWhitespace()<CR>
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
+
