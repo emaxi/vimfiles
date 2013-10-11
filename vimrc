@@ -128,3 +128,6 @@ noremap <leader>ss :call StripWhitespace()<CR>
 set binary
 set noeol
 
+syntax enable
+set background=light
+colorscheme solarized

@@ -40,6 +40,8 @@ Bundle "pangloss/vim-javascript"
 " A syntax plugin that extends the Tim Pope's markdown syntax file to
 " recognize github code blocks
 Bundle "jtratner/vim-flavored-markdown.git"
+Bundle "juvenn/mustache.vim"
+Bundle "altercation/vim-colors-solarized.git"
 
 
 filetype plugin indent on     " required!
