@@ -129,7 +129,11 @@ set binary
 set noeol
 
 syntax enable
-set background=light
 colorscheme solarized
+if strftime("%H") >= 5 && strftime("%H") <= 17
+	set background=light
+else
+	set background=dark
+endif
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
