@@ -22,6 +22,7 @@ Bundle "vim-scripts/matchit.zip.git"
 Bundle "vim-scripts/IndexedSearch"
 Bundle "godlygeek/tabular"
 Bundle "nathanaelkane/vim-indent-guides"
+Bundle "kien/ctrlp.vim"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
