@@ -130,7 +130,7 @@ set noeol
 
 syntax enable
 colorscheme solarized
-if strftime("%H") >= 5 && strftime("%H") <= 17
+if strftime("%H") >= 5 && strftime("%H") <= 19
 	set background=light
 else
 	set background=dark
