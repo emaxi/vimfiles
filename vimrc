@@ -113,6 +113,10 @@ set laststatus=2
 set shortmess=atI
 
 
+" Enable spellchecking for Markdown
+autocmd BufRead,BufNewFile *.md setlocal spell"
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
