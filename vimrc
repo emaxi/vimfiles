@@ -171,3 +171,8 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " Sudo after edit 
 cmap w!! w !sudo tee % >/dev/null
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|rdb)$',
+  \ }
