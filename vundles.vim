@@ -23,6 +23,7 @@ Bundle "vim-scripts/IndexedSearch"
 Bundle "godlygeek/tabular"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "kien/ctrlp.vim"
+Bundle "rking/ag.vim"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
@@ -35,6 +36,7 @@ Bundle "timcharper/textile.vim.git"
 Bundle "itspriddle/vim-jquery.git"
 Bundle "slim-template/vim-slim.git"
 Bundle "groenewege/vim-less.git"
+Bundle "tpope/vim-fugitive.git"
 " Bundle "vim-scripts/Vim-R-plugin"
 Bundle "tpope/vim-git"
 Bundle "pangloss/vim-javascript"

@@ -10,7 +10,8 @@
   set visualbell                  "No sounds
   set autoread                    "Reload files changed outside vim
   syntax on
-  let mapleader=","
+  let mapleader=","								"The \ key seems rather out of the way
+	inoremap jk <ESC>								"jj don't fit
   set showcmd                     "Show incomplete cmds down the bottom
   set showmode                    "Show current mode down the bottom
   set gcr=n:blinkon0
@@ -36,7 +37,6 @@ set hidden
   set hlsearch         "Hilight searches by default
   set viminfo='100,f1  "Save up to 100 marks, enable capital marks
   set ignorecase
-  set smartcase
 
 " ================ Turn Off Swap Files ==============
 
@@ -57,10 +57,9 @@ set nowb
   set autoindent
   set smartindent
   set smarttab
-  set shiftwidth=2
-  set softtabstop=2
-  set tabstop=2
-  set expandtab
+	set tabstop=2
+	set softtabstop=2
+	set shiftwidth=2
 
   filetype plugin on
   filetype indent on
@@ -105,7 +104,6 @@ nnoremap <C-H> <C-W><C-H>
 " Highlight current line
 set cursorline
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 " set list
 " Always show status line
 set laststatus=2
@@ -151,24 +149,22 @@ endif
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-
-" http://robots.thoughtbot.com/faster-grepping-in-vim/
-
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+set expandtab
 
-nnoremap \ :Ag<SPACE>
+" Edit / Reload vimrc maps
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+set list
+set lcs=tab:▸\ ,trail:·,eol:¬,extends:#,nbsp:_
+" autocmd filetype html,xml set listchars-=tab:>.
+
+" It changes behaviour so that it jumps to the next row in the editor"
+nnoremap j gj
+nnoremap k gk
+
+" Clear highlighted searches
+nmap <silent> ,/ :nohlsearch<CR>
