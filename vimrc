@@ -168,3 +168,6 @@ nnoremap k gk
 
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
+
+" Sudo after edit 
+cmap w!! w !sudo tee % >/dev/null
