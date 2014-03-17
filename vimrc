@@ -19,6 +19,7 @@
   set encoding=utf-8
   set title
   set backspace=indent,eol,start  "Intuitive backspacing in insert mode
+  set number
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -137,7 +138,6 @@ if strftime("%H") >= 5 && strftime("%H") <= 19
 else
 	set background=dark
 endif
-let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 
 " Columns to 80 as right wide
@@ -176,3 +176,63 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|rdb)$',
   \ }
+if colors_name == 'solarized'
+  if has('gui_macvim')
+    set transparency=0
+  endif
+
+  if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
+    let g:solarized_termcolors = &t_Co
+    let g:solarized_termtrans = 1
+    colorscheme solarized
+  endif
+
+endif
+
+" Leave this at normal at all times
+let g:solarized_contrast='normal'
+
+" Non-text items visibility, normal low or high
+let g:solarized_visibility='normal'
+
+" Show trailing white spaces
+let g:solarized_hitrail=1
+
+" Disable the Solarized menu, when using GUI
+let g:solarized_menu=0
+
+" Don't use any underline styles
+let g:solarized_underline=0
+
+set background=dark " Use the light/dark version the color scheme
+silent! colorscheme solarized " Set the color scheme to use, no errors allowed
+
+" }}}
+if has('gui_running') "{{{
+  " Fix spell check highlighting
+  highlight SpellBad term=underline gui=undercurl guisp=Red
+
+  " Set the window position to these coordinates
+  winpos 0 0
+
+  " Set the font
+  set guifont=Monaco:h11
+
+  if ! $diff " Check if in diff mode
+    " If not, do a normal sized window
+    set columns=120 lines=40 " Set the width and height of window
+  else
+    " If yes, then double that for diff mode
+    set columns=240 lines=40 " Same here, duh!
+  endif
+
+  if has('gui_macvim')
+    set fuoptions=maxvert,maxhorz " Full screen means FULL screen
+  else
+    " Other GUIs, like Gvim, go here
+  endif
+else
+  " Terminal settings go here
+endif "}}}
+
+au BufNewFile,BufRead Guardfile set filetype=ruby
