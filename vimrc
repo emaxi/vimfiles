@@ -132,13 +132,6 @@ set binary
 set noeol
 
 syntax enable
-colorscheme solarized
-if strftime("%H") >= 5 && strftime("%H") <= 19
-	set background=light
-else
-	set background=dark
-endif
-let g:solarized_visibility = "high"
 
 " Columns to 80 as right wide
 if exists('+colorcolumn')
@@ -176,6 +169,18 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll|rdb)$',
   \ }
+
+
+colorscheme solarized
+if strftime("%H") >= 5 && strftime("%H") <= 19
+	set background=light
+else
+	set background=dark
+endif
+
+let g:solarized_visibility = "high"
+
+
 if colors_name == 'solarized'
   if has('gui_macvim')
     set transparency=0
