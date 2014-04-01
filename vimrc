@@ -108,8 +108,9 @@ set cursorline
 " set list
 " Always show status line
 set laststatus=2
+
 " Don’t show the intro message when starting Vim
-set shortmess=atI
+" set shortmess=atI
 
 
 " Enable spellchecking for Markdown
