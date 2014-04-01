@@ -235,4 +235,5 @@ else
   " Terminal settings go here
 endif "}}}
 
+" Set Guardfile filetype as ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
