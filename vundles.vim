@@ -24,6 +24,7 @@ Bundle "vim-scripts/matchit.zip.git"
 " Bundle "nathanaelkane/vim-indent-guides"
 Bundle "kien/ctrlp.vim"
 Bundle "rking/ag.vim"
+Bundle "henrik/vim-reveal-in-finder"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
