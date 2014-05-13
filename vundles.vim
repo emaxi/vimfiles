@@ -25,6 +25,7 @@ Bundle "vim-scripts/matchit.zip.git"
 Bundle "kien/ctrlp.vim"
 Bundle "rking/ag.vim"
 Bundle "henrik/vim-reveal-in-finder"
+Bundle "tpope/vim-characterize"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
