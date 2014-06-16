@@ -26,6 +26,7 @@ Bundle "kien/ctrlp.vim"
 Bundle "rking/ag.vim"
 Bundle "henrik/vim-reveal-in-finder"
 Bundle "tpope/vim-characterize"
+" Bundle "zoeesilcock/vim-caniuse"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
