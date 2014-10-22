@@ -27,6 +27,7 @@ Bundle "rking/ag.vim"
 Bundle "henrik/vim-reveal-in-finder"
 Bundle "tpope/vim-characterize"
 " Bundle "zoeesilcock/vim-caniuse"
+Bundle "stefanoverna/vim-i18n.git"
 
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
@@ -49,6 +50,7 @@ Bundle "tpope/vim-fugitive.git"
 "Bundle "juvenn/mustache.vim"
 Bundle "altercation/vim-colors-solarized.git"
 " Bundle "jaxbot/github-issues.vim" " Github issues
+Bundle "ngmy/vim-rubocop"
 
 
 filetype plugin indent on     " required!

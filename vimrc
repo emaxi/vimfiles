@@ -163,7 +163,7 @@ nnoremap k gk
 " Clear highlighted searches
 nmap <silent> ,/ :nohlsearch<CR>
 
-" Sudo after edit 
+" Sudo after edit
 cmap w!! w !sudo tee % >/dev/null
 
 let g:ctrlp_custom_ignore = {
@@ -243,3 +243,5 @@ endif "}}}
 
 " Set Guardfile filetype as ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
+
+vmap <Leader>z :call I18nTranslateString()<CR>
