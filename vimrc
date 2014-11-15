@@ -10,11 +10,10 @@ set encoding=utf-8
 """"//////### General Config ###\\\\\\\\"""""
 
   set history=1000                "Store lots of :cmdline history
-  set visualbell                  "No sounds
   set autoread                    "Reload files changed outside vim
   syntax on
-  let mapleader=","								"The \ key seems rather out of the way
-	inoremap jk <ESC>								"jj don't fit
+  let mapleader=","               "The \ key seems rather out of the way
+	inoremap jk <ESC>               "jj don't fit
   set showcmd                     "Show incomplete cmds down the bottom
   set showmode                    "Show current mode down the bottom
   set gcr=n:blinkon0
@@ -22,6 +21,9 @@ set encoding=utf-8
   set title
   set backspace=indent,eol,start  "Intuitive backspacing in insert mode
   set number
+  set vb                          "Enable visual bell (disable audio bell)
+  set clipboard=unnamed           "Use the system clipboard
+  set ttimeoutlen=100             "Decrease timeout for faster insert with 'O'
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -215,40 +217,89 @@ let g:solarized_underline=0
 set background=dark " Use the light/dark version the color scheme
 silent! colorscheme solarized " Set the color scheme to use, no errors allowed
 
-" }}}
-if has('gui_running') "{{{
-  " Fix spell check highlighting
-  highlight SpellBad term=underline gui=undercurl guisp=Red
-
-  " Set the window position to these coordinates
-  winpos 0 0
-
-  " Set the font
-  set guifont=Monaco:h11
-
-  if ! $diff " Check if in diff mode
-    " If not, do a normal sized window
-    set columns=120 lines=40 " Set the width and height of window
-  else
-    " If yes, then double that for diff mode
-    set columns=240 lines=40 " Same here, duh!
-  endif
-
-  if has('gui_macvim')
-    set fuoptions=maxvert,maxhorz " Full screen means FULL screen
-  else
-    " Other GUIs, like Gvim, go here
-  endif
-else
-  " Terminal settings go here
-endif "}}}
-
 " Set Guardfile filetype as ruby
 au BufNewFile,BufRead Guardfile set filetype=ruby
 
 vmap <Leader>z :call I18nTranslateString()<CR>
 
+" %% give back path of current working dir
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" ctrlp config
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_max_height = 30
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+
+" use silver searcher for ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
+" search for word under cursor with Silver Searcher
+map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
+
+" map Silver Searcher
+map <leader>a :Ag!<space>
+
+" rename current file, via Gary Bernhardt
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  :w
+  :silent !clear
+  if match(a:filename, '\.feature$') != -1
+    exec ":!bundle exec cucumber " . a:filename
+  elseif match(a:filename, '_test\.rb$') != -1
+    if filereadable("bin/testrb")
+      exec ":!bin/testrb " . a:filename
+    else
+      exec ":!ruby -Itest " . a:filename
+    end
+  else
+    if filereadable("Gemfile")
+      exec ":!bundle exec rspec --color " . a:filename
+    else
+      exec ":!rspec --color " . a:filename
+    end
+  end
+endfunction
+
+function! SetTestFile()
+  " set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+" run test runner
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
