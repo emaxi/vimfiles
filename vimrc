@@ -247,3 +247,6 @@ au BufNewFile,BufRead Guardfile set filetype=ruby
 vmap <Leader>z :call I18nTranslateString()<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
