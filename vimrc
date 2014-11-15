@@ -1,3 +1,6 @@
+set encoding=utf-8
+
+"
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
   set nocompatible
@@ -16,7 +19,6 @@
   set showmode                    "Show current mode down the bottom
   set gcr=n:blinkon0
   set ruler
-  set encoding=utf-8
   set title
   set backspace=indent,eol,start  "Intuitive backspacing in insert mode
   set number
