@@ -245,3 +245,5 @@ endif "}}}
 au BufNewFile,BufRead Guardfile set filetype=ruby
 
 vmap <Leader>z :call I18nTranslateString()<CR>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
