@@ -22,7 +22,7 @@ set encoding=utf-8
   set backspace=indent,eol,start  "Intuitive backspacing in insert mode
   set number
   set vb                          "Enable visual bell (disable audio bell)
-  set clipboard=unnamed           "Use the system clipboard
+  #set clipboard=unnamed           "Use the system clipboard
   set ttimeoutlen=100             "Decrease timeout for faster insert with 'O'
 
 " This makes vim act like all other editors, buffers can
