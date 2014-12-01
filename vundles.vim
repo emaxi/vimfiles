@@ -8,7 +8,9 @@ Bundle 'gmarik/vundle'
 " Automatic closing of quotes, parenthesis, brackets
 " Bundle "Raimondi/delimitMate"
 " provides easy to use, file-type sensible comments for Vim
-" Bundle "tomtom/tcomment_vim.git"
+Bundle "tomtom/tcomment_vim.git"
+Bundle "mattn/gist-vim.git"
+Bundle "mattn/webapi-vim.git"
 " enable repeating supported plugin maps with "."
 " Bundle "tpope/vim-repeat.git"
 " Bundle "tpope/vim-endwise.git"
@@ -51,6 +53,7 @@ Bundle "slim-template/vim-slim.git"
 Bundle "altercation/vim-colors-solarized.git"
 " Bundle "jaxbot/github-issues.vim" " Github issues
 Bundle "ngmy/vim-rubocop"
+Bundle "shime/vim-livedown"
 
 
 filetype plugin indent on     " required!

@@ -226,7 +226,7 @@ vmap <Leader>z :call I18nTranslateString()<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " ctrlp config
-let g:ctrlp_map = '<leader>f'
+" let g:ctrlp_map = '<leader>f'
 let g:ctrlp_max_height = 30
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
