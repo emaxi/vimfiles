@@ -58,5 +58,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'scrooloose/nerdtree'
+" Bundle 'kurko/smartest.vim' " good for auto detect how run Ruby specs
 
 filetype plugin indent on     " required!
