@@ -54,6 +54,9 @@ Bundle "altercation/vim-colors-solarized.git"
 " Bundle "jaxbot/github-issues.vim" " Github issues
 Bundle "ngmy/vim-rubocop"
 Bundle "shime/vim-livedown"
-
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'scrooloose/nerdtree'
 
 filetype plugin indent on     " required!
