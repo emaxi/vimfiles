@@ -12,8 +12,10 @@ set encoding=utf-8
   set history=1000                "Store lots of :cmdline history
   set autoread                    "Reload files changed outside vim
   syntax on
-  let mapleader=","               "The \ key seems rather out of the way
-	inoremap jk <ESC>               "jj don't fit
+  " Use the space key as our leader. Put this near the top of your vimrc
+  let mapleader = "\<Space>"
+	inoremap jk <ESC>
+	inoremap kj <ESC>
   set showcmd                     "Show incomplete cmds down the bottom
   set showmode                    "Show current mode down the bottom
   set gcr=n:blinkon0
@@ -156,7 +158,7 @@ set expandtab
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-set list
+" set list
 set lcs=tab:▸\ ,trail:·,eol:¬,extends:#,nbsp:_
 " autocmd filetype html,xml set listchars-=tab:>.
 
@@ -175,29 +177,31 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|rdb)$',
   \ }
 
-
-colorscheme solarized
-if strftime("%H") >= 5 && strftime("%H") <= 19
-	set background=light
-else
-	set background=dark
-endif
-
 let g:solarized_visibility = "high"
 
+" if colors_name == 'solarized'
+"   if has('gui_macvim')
+"     set transparency=0
+"   endif
+" 
+"   if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
+"     let g:solarized_termcolors = &t_Co
+"     let g:solarized_termtrans = 1
+"     colorscheme solarized
+"   endif
+" 
+" endif
 
-if colors_name == 'solarized'
-  if has('gui_macvim')
-    set transparency=0
-  endif
 
-  if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
-    let g:solarized_termcolors = &t_Co
-    let g:solarized_termtrans = 1
-    colorscheme solarized
-  endif
+colorscheme solarized
 
+let hour = strftime("%H")
+if 6 <= hour && hour < 20
+  set background=light
+else
+  set background=dark
 endif
+
 
 " Leave this at normal at all times
 let g:solarized_contrast='normal'
@@ -214,7 +218,6 @@ let g:solarized_menu=0
 " Don't use any underline styles
 let g:solarized_underline=0
 
-set background=dark " Use the light/dark version the color scheme
 silent! colorscheme solarized " Set the color scheme to use, no errors allowed
 
 " Set Guardfile filetype as ruby
@@ -232,7 +235,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 0
 
 " use silver searcher for ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 
 " search for word under cursor with Silver Searcher
 map <leader>A :Ag! "<C-r>=expand('<cword>')<CR>"
@@ -315,3 +318,34 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_runner = "os_x_iterm2"
 let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Bind `q` to close the buffer for help files
+autocmd Filetype help nnoremap <buffer> q :q<CR>
+
+" Edit the db/schema.rb Rails file in a split
+nmap <leader>sc :split db/schema.rb<cr>
+
+" Command aliases for typoed commands (accidentally holding shift too long)
+command! Q q " Bind :Q to :q
+command! Qall qall
+command! QA qall
+command! E e
+
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-[> :call NumberToggle()<cr>
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+

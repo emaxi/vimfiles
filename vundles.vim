@@ -12,7 +12,7 @@ Bundle "tomtom/tcomment_vim.git"
 Bundle "mattn/gist-vim.git"
 Bundle "mattn/webapi-vim.git"
 " enable repeating supported plugin maps with "."
-" Bundle "tpope/vim-repeat.git"
+Bundle "tpope/vim-repeat.git"
 " Bundle "tpope/vim-endwise.git"
 " Last position jump improved for Easy Vim
 Bundle "vim-scripts/lastpos.vim"
@@ -34,7 +34,7 @@ Bundle "henrik/vim-reveal-in-finder"
 
 " /////////////// Languages/Technologies plugins \\\\\\\\\\\\\\\\\\\
 " Bundle "skwp/vim-git-grep-rails-partial"
-" Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rails.git'
 Bundle "tpope/vim-haml"
 " Bundle "kchmck/vim-coffee-script"
 " Bundle "claco/jasmine.vim"
@@ -58,6 +58,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'kurko/smartest.vim' " good for auto detect how run Ruby specs
+"( Bundle 'kurko/smartest.vim' " good for auto detect how run Ruby specs
+Bundle 'tpope/vim-surround'
 
 filetype plugin indent on     " required!
