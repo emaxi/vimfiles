@@ -1,3 +1,6 @@
 backups/
 bundle/
 .DS_Store
+.netw
+.netrwhist
+

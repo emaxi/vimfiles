@@ -60,5 +60,11 @@ Bundle 'jgdavey/tslime.vim'
 Bundle 'scrooloose/nerdtree'
 "( Bundle 'kurko/smartest.vim' " good for auto detect how run Ruby specs
 Bundle 'tpope/vim-surround'
+Bundle 'pbrisbin/vim-mkdir'
+Bundle 'tpope/vim-eunuch'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 filetype plugin indent on     " required!

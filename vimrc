@@ -23,6 +23,7 @@ set encoding=utf-8
   set title
   set backspace=indent,eol,start  "Intuitive backspacing in insert mode
   set number
+  set relativenumber 
   set vb                          "Enable visual bell (disable audio bell)
   "set clipboard=unnamed           "Use the system clipboard
   set ttimeoutlen=100             "Decrease timeout for faster insert with 'O'
@@ -334,18 +335,3 @@ command! Q q " Bind :Q to :q
 command! Qall qall
 command! QA qall
 command! E e
-
-" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-[> :call NumberToggle()<cr>
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
