@@ -112,7 +112,7 @@ nnoremap <C-H> <C-W><C-H>
 " Highlight current line
 set cursorline
 " Show “invisible” characters
-" set list
+set list
 " Always show status line
 set laststatus=2
 
@@ -335,3 +335,5 @@ command! Q q " Bind :Q to :q
 command! Qall qall
 command! QA qall
 command! E e
+
+" Buffers
