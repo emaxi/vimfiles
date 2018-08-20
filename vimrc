@@ -34,10 +34,16 @@ set encoding=utf-8
 set hidden
 
 """"//////### VUNDLE ###\\\\\\\\"""""
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
   if filereadable(expand("~/.vim/vundles.vim"))
     source ~/.vim/vundles.vim
   endif
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " ================ Search Settings  =================
 
